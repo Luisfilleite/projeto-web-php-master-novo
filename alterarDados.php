@@ -200,13 +200,13 @@
 
                           $sqlUsuario = "SELECT nomeUsuario, mailUsuario, senhaUsuario FROM usuarios 
                                          WHERE codigoUsuario=:codigoUsuario";
-                          $sqlUsuariosST = $conexao->prepare($sqlUsuario);
+                          $sqlUsuarioST = $conexao->prepare($sqlUsuario);
 
                           $sqlUsuarioST->bindValue(':codigoUsuario', $codigoUsuarioLogado);
 
                           $sqlUsuarioST->execute();
 
-                          $resultadoUsuario = $sqlEditarUsuarioST->fetchALL();
+                          $resultadoUsuario = $sqlUsuarioST->fetchALL();
 
                           list($nomeUsuario, $mailUsuario, $senhaUsuario) = $resultadoUsuario[0];
                           $mail2Usuario = $mailUsuario;
